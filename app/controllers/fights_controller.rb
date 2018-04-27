@@ -4,7 +4,8 @@ class FightsController < ApplicationController
     @fight = Fight.create(fight_params)
 
     if @fight.valid?
-      flash[:notice] = 'The fight has happened'
+      fight_recap = FightRunner.new(@fight).run_fight
+      flash[:notice] = 'The fight has happened, ' + fight_recap
     else
       flash[:alert] = 'The fight hasn\'t happened'
     end
