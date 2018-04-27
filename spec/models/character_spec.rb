@@ -11,4 +11,6 @@ RSpec.describe Character, type: :model do
   it { should validate_presence_of :attack_score }
   it { should validate_numericality_of(:attack_score).only_integer }
 
+  it { is_expected.to have_many(:fights) }
+
 end
