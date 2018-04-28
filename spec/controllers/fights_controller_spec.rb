@@ -16,7 +16,7 @@ RSpec.describe FightsController, type: :controller do
       created_fight = Fight.last
       expect(created_fight.first_character_id).to eq strong_monster.id
       expect(created_fight.second_character_id).to eq weak_monster.id
-      expect(flash[:notice]).to include('The fight has happened,')
+      expect(flash[:notice]).to match("The fight has happened, #{strong_monster.name} won")
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to(root_path)
     end
