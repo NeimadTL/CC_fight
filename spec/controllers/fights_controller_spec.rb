@@ -25,9 +25,18 @@ RSpec.describe FightsController, type: :controller do
       previous_count = Fight.all.count
       post :create, fight: { first_character_id: nil, second_character_id: nil }
       expect(Fight.all.count).to eq previous_count
-      expect(flash[:alert]).to include('The fight hasn\'t happened')
+      expect(flash[:alert]).to match('The fight hasn\'t happened')
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to(root_path)
+    end
+  end
+
+
+  describe "when GET #index" do
+
+    it "returns http success" do
+      get :index
+      expect(response).to have_http_status(:success)
     end
   end
 

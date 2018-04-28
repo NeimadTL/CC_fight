@@ -8,4 +8,6 @@ RSpec.describe Fight, type: :model do
   it { should validate_presence_of :second_character_id }
   it { is_expected.to belong_to(:second_character) }
 
+  it { is_expected.to belong_to(:winner) }
+
 end

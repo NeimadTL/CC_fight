@@ -1,11 +1,16 @@
 class FightsController < ApplicationController
 
+
+  def index
+    @fights = Fight.all
+  end
+
   def create
     @fight = Fight.create(fight_params)
 
     if @fight.valid?
       fight_recap = FightRunner.new(@fight).run_fight
-      flash[:notice] = 'The fight has happened, ' + fight_recap
+      flash[:notice] = "The fight has happened, #{@fight.winner.name} won"
     else
       flash[:alert] = 'The fight hasn\'t happened'
     end

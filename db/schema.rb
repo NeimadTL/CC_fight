@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180427150607) do
+ActiveRecord::Schema.define(version: 20180428100348) do
 
   create_table "characters", force: :cascade do |t|
     t.string   "name"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20180427150607) do
     t.datetime "updated_at",          null: false
     t.integer  "first_character_id"
     t.integer  "second_character_id"
+    t.integer  "winner_id"
   end
+
+  add_index "fights", ["winner_id"], name: "index_fights_on_winner_id"
 
 end

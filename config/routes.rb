@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   resources :characters, only: [:new, :create]
-  resources :fights, only: [:create]
+  resources :fights, only: [:index, :create]
 
 end
