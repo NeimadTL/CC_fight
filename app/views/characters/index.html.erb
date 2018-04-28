@@ -9,20 +9,26 @@
           <th>Name</th>
           <th>Life score</th>
           <th>Attack score</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <% @characters.each do |character| %>
         <tr>
           <td>
             <% if character.picture.present? %>
-              <%= image_tag character.picture, size: "50x50", class: 'img-fluid img-thumbnail rounded' %>
+              <%= image_tag character.picture, size: "50x50", class: 'img-fluid rounded' %>
             <% else %>
-              <%= image_tag 'default-picture', size: "50x50", class: 'img-fluid img-thumbnail rounded' %>
+              <%= image_tag 'default-picture', size: "50x50", class: 'img-fluid rounded' %>
             <% end %>
           </td>
           <td><p><%= link_to "#{character.name}", character_path(character) %></p></td>
           <td><p><%= character.life_score %></p></td>
           <td><p><%= character.attack_score %></p></td>
+          <td>
+            <%= link_to edit_character_path(character) do %>
+              <%= image_tag 'glyphicons-151-edit', class: 'img-fluid' %>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     </table>

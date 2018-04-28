@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
 
-  before_action :set_character, only: [:show]
+  before_action :set_character, only: [:show, :edit, :update]
 
   def index
     @characters = Character.all
@@ -22,6 +22,20 @@ class CharactersController < ApplicationController
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+  end
+
+  def update
+    @character.update_attributes(character_params)
+
+    if @character.valid?
+      flash[:notice] = 'Character updated with success'
+      redirect_to characters_path
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 

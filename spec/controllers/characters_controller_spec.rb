@@ -50,4 +50,37 @@ RSpec.describe CharactersController, type: :controller do
     end
   end
 
+  describe "when GET #edit" do
+    it "with a found character, returns http success" do
+      get :edit, id: characters(:game_boss).id
+      expect(response).to have_http_status(:success)
+    end
+
+    it "with a not found character, renders 404.html file" do
+      get :edit, id: Random.new.rand(2000..3000)
+      expect(response).to render_template(:file => "#{Rails.root}/public/404.html")
+    end
+  end
+
+  describe "when PUT/PATCH #update" do
+    it "with and good params, returns http redirect" do
+      put :update, id: characters(:game_boss).id,
+        character: { name: 'Game Big Boss', life_score: 38, attack_score: 99 }
+      updated_character = Character.find(characters(:game_boss).id)
+      expect(updated_character.name).to eql 'Game Big Boss'
+      expect(updated_character.life_score).to eql 38
+      expect(updated_character.attack_score).to eql 99
+      expect(flash[:notice]).to match('Character updated with success')
+      expect(response).to have_http_status(:redirect)
+      expect(response).to redirect_to(characters_path)
+    end
+
+    it "with bad params, returns http unprocessable_entity" do
+      put :update, id: characters(:game_boss).id,
+        character: { name: nil, life_score: nil, attack_score: nil }
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to render_template(:edit)
+    end
+  end
+
 end
