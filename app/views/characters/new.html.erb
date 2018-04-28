@@ -6,3 +6,36 @@
   <%= f.input :attack_score, label: false, placeholder: 'Attack score', input_html: { class: 'form-control' } %>
   <%= f.submit "Create", class: 'btn btn-primary' %>
 <% end %>
+
+
+<script type="text/javascript">
+
+  $('#new_character').validate({
+
+    highlight: function(element) {
+      jQuery(element).closest('.form-control').addClass('is-invalid');
+    },
+    unhighlight: function(element) {
+      jQuery(element).closest('.form-control').removeClass('is-invalid');
+    },
+    errorElement: 'div',
+    errorClass: 'invalid-feedback',
+    rules: {
+      'character[name]': { required: true },
+      'character[life_score]': { required: true },
+      'character[attack_score]': { required: true }
+    },
+    messages: {
+      'character[name]': {
+        required: "Please fill this input with a name for your character."
+      },
+      'character[life_score]': {
+        required: "Please fill this input with a life score for your character."
+      },
+      'character[attack_score]': {
+        required: "Please fill this input with a attack score for your character."
+      }
+    }
+  });
+
+</script>
