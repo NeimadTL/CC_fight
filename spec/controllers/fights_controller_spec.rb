@@ -2,16 +2,14 @@ require 'rails_helper'
 
 RSpec.describe FightsController, type: :controller do
 
-
-  Character.delete_all
-
-  strong_monster = Character.create!(name: "Strong monster", life_score: 50, attack_score: 95)
-  weak_monster = Character.create!(name: "Weak monster", life_score: 35, attack_score: 60)
-
+  fixtures :all
+  
 
   describe "when POST #create" do
 
     it "with good params, returns http redirect" do
+      strong_monster = characters(:game_boss)
+      weak_monster = characters(:game_looser)
       post :create, fight: { first_character_id: strong_monster.id, second_character_id: weak_monster.id }
       created_fight = Fight.last
       expect(created_fight.first_character_id).to eq strong_monster.id

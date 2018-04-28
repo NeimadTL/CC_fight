@@ -1,0 +1,12 @@
+game_boss:
+  id: 1
+  name: Game b0$$
+  life_score: 100
+  attack_score: 95
+
+
+game_looser:
+  id: 2
+  name: CallMeLooser||KillMe
+  life_score: 100
+  attack_score: 10
