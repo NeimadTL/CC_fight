@@ -1,20 +1,22 @@
 <br/><h5>Fights history</h5><br/>
 
-<% if @fights && !@fights.empty?  %>
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">Characters</th>
-        <th scope="col">Winner</th>
-      </tr>
-    </thead>
-    <% @fights.each do |fight| %>
-      <tr>
-        <td><p><%= fight.first_character.name %> VS <%= fight.second_character.name %></p></td>
-        <td><p><%= fight.winner.name %></p></td>
-      </tr>
-    <% end %>
-  </table>
+<% if @fights && !@fights.empty? %>
+  <div class="table-responsive-sm">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Characters</th>
+          <th scope="col">Winner</th>
+        </tr>
+      </thead>
+      <% @fights.each do |fight| %>
+        <tr>
+          <td><p><%= fight.first_character.name %> VS <%= fight.second_character.name %></p></td>
+          <td><p><%= fight.winner.name %></p></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
 <% else %>
   <p>No fights have happened yet</p>
 <% end %>

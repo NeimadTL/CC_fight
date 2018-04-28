@@ -1,0 +1,32 @@
+<br/><h5>Characters list</h5><br/>
+
+<% if @characters && !@characters.empty?  %>
+  <div class="table-responsive-sm">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Picture</th>
+          <th>Name</th>
+          <th>Life score</th>
+          <th>Attack score</th>
+        </tr>
+      </thead>
+      <% @characters.each do |character| %>
+        <tr>
+          <td>
+            <% if character.picture.present? %>
+              <%= image_tag character.picture, size: "50x50", class: 'img-fluid img-thumbnail rounded' %>
+            <% else %>
+              <%= image_tag 'default-picture', size: "50x50", class: 'img-fluid img-thumbnail rounded' %>
+            <% end %>
+          </td>
+          <td><p><%= character.name %></p></td>
+          <td><p><%= character.life_score %></p></td>
+          <td><p><%= character.attack_score %></p></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <p>No fights have happened yet</p>
+<% end %>

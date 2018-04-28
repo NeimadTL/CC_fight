@@ -1,5 +1,10 @@
 class CharactersController < ApplicationController
 
+
+  def index
+    @characters = Character.all
+  end
+
   def new
     @character = Character.new
   end
@@ -17,6 +22,6 @@ class CharactersController < ApplicationController
 
   private
     def character_params
-      params.require(:character).permit(:name, :life_score, :attack_score)
+      params.require(:character).permit(:name, :life_score, :attack_score, :picture)
     end
 end

@@ -6,4 +6,6 @@ class Character < ActiveRecord::Base
 
   has_many :fights, :foreign_key => :first_character_id, :dependent => :destroy
 
+  mount_uploader :picture, PictureUploader
+
 end
