@@ -20,7 +20,7 @@
               <%= image_tag 'default-picture', size: "50x50", class: 'img-fluid img-thumbnail rounded' %>
             <% end %>
           </td>
-          <td><p><%= character.name %></p></td>
+          <td><p><%= link_to "#{character.name}", character_path(character) %></p></td>
           <td><p><%= character.life_score %></p></td>
           <td><p><%= character.attack_score %></p></td>
         </tr>

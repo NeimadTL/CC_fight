@@ -1,8 +1,13 @@
 class CharactersController < ApplicationController
 
+  before_action :set_character, only: [:show]
 
   def index
     @characters = Character.all
+  end
+
+  def show
+    @won_fights_count = Fight.where(winner: @character).count
   end
 
   def new
@@ -23,5 +28,9 @@ class CharactersController < ApplicationController
   private
     def character_params
       params.require(:character).permit(:name, :life_score, :attack_score, :picture)
+    end
+
+    def set_character
+      @character = Character.find(params[:id])
     end
 end

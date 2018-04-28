@@ -2,6 +2,9 @@ require 'rails_helper'
 
 RSpec.describe CharactersController, type: :controller do
 
+  fixtures :all
+
+
   describe "when GET #new" do
     it "returns http success" do
       get :new
@@ -29,10 +32,21 @@ RSpec.describe CharactersController, type: :controller do
   end
 
   describe "when GET #index" do
-
     it "returns http success" do
       get :index
       expect(response).to have_http_status(:success)
+    end
+  end
+
+  describe "when GET #show" do
+    it "with a found character, returns http success" do
+      get :show, id: characters(:game_boss).id
+      expect(response).to have_http_status(:success)
+    end
+
+    it "with a not found character, renders 404.html file" do
+      get :show, id: Random.new.rand(2000..3000)
+      expect(response).to render_template(:file => "#{Rails.root}/public/404.html")
     end
   end
 
