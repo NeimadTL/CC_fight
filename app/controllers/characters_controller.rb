@@ -1,6 +1,6 @@
 class CharactersController < ApplicationController
 
-  before_action :set_character, only: [:show, :edit, :update]
+  before_action :set_character, only: [:show, :edit, :update, :destroy]
 
   def index
     @characters = Character.all
@@ -37,6 +37,12 @@ class CharactersController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @character.destroy
+    flash[:notice] = 'Character deleted with success'
+    redirect_to characters_path
   end
 
   private

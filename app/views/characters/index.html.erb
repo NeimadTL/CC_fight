@@ -28,6 +28,9 @@
             <%= link_to edit_character_path(character) do %>
               <%= image_tag 'glyphicons-151-edit', class: 'img-fluid' %>
             <% end %>
+            <%= link_to character_path(character), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <%= image_tag 'glyphicons-208-remove', class: 'img-fluid' %>
+            <% end %>
           </td>
         </tr>
       <% end %>

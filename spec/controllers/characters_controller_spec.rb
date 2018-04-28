@@ -83,4 +83,17 @@ RSpec.describe CharactersController, type: :controller do
     end
   end
 
+
+  describe "when DELETE #destroy" do
+    it "with a found character, returns http redirect" do
+      delete :destroy, id: characters(:game_boss).id
+      expect(response).to have_http_status(:redirect)
+      expect(response).to redirect_to(characters_path)
+    end
+
+    it "with a not found character, renders 404.html file" do
+      delete :destroy, id: Random.new.rand(2000..3000)
+      expect(response).to render_template(:file => "#{Rails.root}/public/404.html")
+    end
+  end
 end
