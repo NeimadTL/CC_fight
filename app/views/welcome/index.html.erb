@@ -1,17 +1,24 @@
-<h1> Welcome to the arena </h1>
+<br/><h5>Welcome to the arena</h5><br/>
 
+<div id="first_character_picture_id"></div>
 
 <%= simple_form_for Fight.new, url: fights_path do |f| %>
 
   <%= f.label :first_character_id, 'First character', class: "form-check-label" %>
-  <%= f.collection_select :first_character_id, Character.all, :id, :name %>
-
+  <%= f.collection_select :first_character_id, Character.all, :id, :name, prompt: true %>
+  <br/>
   <%= f.label :second_character_id, 'Second character', class: "form-check-label" %>
-  <%= f.collection_select :second_character_id, Character.all, :id, :name %>
-
+  <%= f.collection_select :second_character_id, Character.all, :id, :name, prompt: true %>
+  <br/>
   <%= f.submit 'Fight', class: 'btn btn-primary' %>
 <% end %>
 
 <script type="text/javascript">
   $("select").addClass("form-control");
+
+  // when first character has been selected, its picture shows up
+  $("#fight_first_character_id").change(function() {
+    if($(this).val() != ''){ $.post( "/first_character_picture", { id: $(this).val() } ); }
+  });
+
 </script>
