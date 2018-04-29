@@ -5,6 +5,7 @@ class Character < ActiveRecord::Base
   validates :attack_score, presence: true, numericality: { only_integer: true }
 
   has_many :fights, :foreign_key => :first_character_id, :dependent => :destroy
+  has_many :fights, :foreign_key => :second_character_id, :dependent => :destroy
 
   mount_uploader :picture, PictureUploader
 
