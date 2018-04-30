@@ -1,4 +1,4 @@
-<br/><h5>Edit the character <%= @character.name %></h5><br/>
+<br/><h5 class="text-white">Edit the character <%= @character.name %></h5><br/>
 
 <%= simple_form_for @character, url: character_path(@character) do |f| %>
   <%= f.input :name, label: false, placeholder: 'Name', input_html: { class: 'form-control' } %>

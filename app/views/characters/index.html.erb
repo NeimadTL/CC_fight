@@ -1,8 +1,8 @@
-<br/><h5>Characters list</h5><br/>
+<br/><h5 class="text-white">Characters list</h5><br/>
 
 <% if @characters && !@characters.empty?  %>
   <div class="table-responsive-sm">
-    <table class="table">
+    <table class="table text-white">
       <thead>
         <tr>
           <th>Picture</th>
@@ -21,7 +21,7 @@
               <%= image_tag 'default-picture', size: "50x50", class: 'img-fluid rounded' %>
             <% end %>
           </td>
-          <td><p><%= link_to "#{character.name}", character_path(character) %></p></td>
+          <td><p><%= link_to "#{character.name}", character_path(character), style: "color:white;" %></p></td>
           <td><p><%= character.life_score %></p></td>
           <td><p><%= character.attack_score %></p></td>
           <td>

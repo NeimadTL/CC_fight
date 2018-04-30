@@ -15,3 +15,16 @@
  */
 
 @import "bootstrap";
+
+.background {
+   background: url('background.jpeg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height:580px;
+  @media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+    height: 150vh;
+  }
+
+}
