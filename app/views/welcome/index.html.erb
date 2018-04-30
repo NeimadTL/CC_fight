@@ -4,19 +4,23 @@
   <div class="container">
     <div class="row">
       <div class="col-sm">
-        <div id="first_character_picture_id"></div>
+        <div id="first_character_picture_id" class="text-center"></div>
         <%= f.label :first_character_id, 'First character', class: "form-check-label text-white" %>
         <%= f.collection_select :first_character_id, Character.all, :id, :name, prompt: true %>
         <br/>
       </div>
       <div class="col-sm">
-        <div id="second_character_picture_id"></div>
+        <div id="second_character_picture_id" class="text-center"></div>
         <%= f.label :second_character_id, 'Second character', class: "form-check-label text-white" %>
         <%= f.collection_select :second_character_id, Character.all, :id, :name, prompt: true %>
         <br/>
       </div>
     </div>
-    <%= f.submit 'Fight', class: 'btn btn-primary' %>
+    <br/>
+    <div class="text-center">
+      <%= f.submit 'Ready? Fight!', class: 'btn btn-primary' %>
+    </div>
+
   </div>
 <% end %>
 
