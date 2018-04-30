@@ -41,15 +41,31 @@
     if($(this).val() != ''){ $.post( "/second_character_picture", { id: $(this).val() } ); }
   });
 
-  // when a character try to fight himself, the fight is cancelled
+
   $("#new_fight").submit(function(event) {
-    var firstCharacterValue = $("#fight_first_character_id").val();
-    var secondCharacterValue = $("#fight_second_character_id").val();
-    if(firstCharacterValue == secondCharacterValue){
+    // when a character try to fight himself, the fight is cancelled
+    if($("#fight_first_character_id").val() == $("#fight_second_character_id").val()){
       alert("A character can't fight against himself.");
       event.preventDefault();
     }
 
+    // when characters are ready to fight, shake their pictures to simulate a real fight
+    $("#first_character_picture_id").shake();
+    $("#second_character_picture_id").shake();
   });
+
+
+  // shake function to shake characters pictures when fighting
+  // has been copied from here -> http://jsfiddle.net/st15jap/JppPG/427/
+  // wanted to use jQueryUI effect/shake method but have had a hard time to include it
+  jQuery.fn.shake = function() {
+    this.each(function(i) {
+        $(this).css({ "position" : "relative" });
+        for (var x = 1; x <= 9; x++) {
+            $(this).animate({ left: -25 }, 10).animate({ left: 0 }, 50)
+            .animate({ left: 25 }, 10).animate({ left: 0 }, 50);
+        }
+    });
+  }
 
 </script>
