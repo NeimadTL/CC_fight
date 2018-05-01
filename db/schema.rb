@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20180428122948) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "characters", force: :cascade do |t|
     t.string   "name"
     t.integer  "life_score"
@@ -30,6 +33,6 @@ ActiveRecord::Schema.define(version: 20180428122948) do
     t.integer  "winner_id"
   end
 
-  add_index "fights", ["winner_id"], name: "index_fights_on_winner_id"
+  add_index "fights", ["winner_id"], name: "index_fights_on_winner_id", using: :btree
 
 end
