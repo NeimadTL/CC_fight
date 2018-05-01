@@ -3,6 +3,7 @@ game_boss:
   name: Game b0$$
   life_score: 100
   attack_score: 95
+  picture : fixture_file_upload('/app/assets/images/game_boss.jpg', 'image/jpg')
 
 
 game_looser:
@@ -10,3 +11,4 @@ game_looser:
   name: CallMeLooser||KillMe
   life_score: 100
   attack_score: 10
+  picture : fixture_file_upload('/app/assets/images/call_me_looser_or_kill_me.jpg', 'image/jpg')

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :characters
   resources :fights, only: [:index, :create]
-  post '/first_character_picture', to: 'welcome#show_first_character_picture'
-  post '/second_character_picture', to: 'welcome#show_second_character_picture'
+  get '/first_character_picture', to: 'welcome#show_first_character_picture'
+  get '/second_character_picture', to: 'welcome#show_second_character_picture'
 
 end
