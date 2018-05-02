@@ -10,4 +10,10 @@ RSpec.describe Fight, type: :model do
 
   it { is_expected.to belong_to(:winner) }
 
+  it { should validate_presence_of :first_character_weapon_id }
+  it { is_expected.to belong_to(:first_character_weapon) }
+
+  it { should validate_presence_of :second_character_weapon_id }
+  it { is_expected.to belong_to(:second_character_weapon) }
+
 end

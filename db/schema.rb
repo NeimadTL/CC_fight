@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502185213) do
+ActiveRecord::Schema.define(version: 20180502202023) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,11 +26,13 @@ ActiveRecord::Schema.define(version: 20180502185213) do
   end
 
   create_table "fights", force: :cascade do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.integer  "first_character_id"
     t.integer  "second_character_id"
     t.integer  "winner_id"
+    t.integer  "first_character_weapon_id"
+    t.integer  "second_character_weapon_id"
   end
 
   add_index "fights", ["winner_id"], name: "index_fights_on_winner_id", using: :btree

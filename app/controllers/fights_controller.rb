@@ -20,7 +20,8 @@ class FightsController < ApplicationController
 
   private
     def fight_params
-      params.require(:fight).permit(:first_character_id, :second_character_id)
+      params.require(:fight).permit(:first_character_id, :second_character_id,
+        :first_character_weapon_id, :second_character_weapon_id)
     end
 
 end

@@ -1,0 +1,14 @@
+bomb:
+  id: 1
+  name: bomb
+  attack_score: 49
+
+knife:
+  id: 2
+  name: knife
+  attack_score: 23
+
+ak47:
+  id: 3
+  name: ak47
+  attack_score: 37
