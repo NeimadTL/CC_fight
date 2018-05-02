@@ -14,10 +14,10 @@ RSpec.describe CharactersController, type: :controller do
 
   describe "when POST #create" do
     it "with good params, returns http redirect" do
-      post :create, character: { name: 'character 1', life_score: '45', attack_score: '60' }
+      post :create, character: { name: 'character 1', attack_score: '60' }
       created_character = Character.last
       expect(created_character.name).to eq 'character 1'
-      expect(created_character.life_score).to eq 45
+      expect(created_character.life_score).to eq 100
       expect(created_character.attack_score).to eq 60
       expect(flash[:notice]).to match('Character created with success')
       expect(response).to have_http_status(:redirect)
@@ -65,10 +65,10 @@ RSpec.describe CharactersController, type: :controller do
   describe "when PUT/PATCH #update" do
     it "with and good params, returns http redirect" do
       put :update, id: characters(:game_boss).id,
-        character: { name: 'Game Big Boss', life_score: 38, attack_score: 99 }
+        character: { name: 'Game Big Boss', attack_score: 99 }
       updated_character = Character.find(characters(:game_boss).id)
       expect(updated_character.name).to eql 'Game Big Boss'
-      expect(updated_character.life_score).to eql 38
+      expect(updated_character.life_score).to eql 100
       expect(updated_character.attack_score).to eql 99
       expect(flash[:notice]).to match('Character updated with success')
       expect(response).to have_http_status(:redirect)

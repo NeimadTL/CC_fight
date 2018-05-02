@@ -2,7 +2,6 @@
 
 <%= simple_form_for @character, url: characters_path do |f| %>
   <%= f.input :name, label: false, placeholder: 'Name', input_html: { class: 'form-control' } %>
-  <%= f.input :life_score, label: false, placeholder: 'Life score', input_html: { class: 'form-control' } %>
   <%= f.input :attack_score, label: false, placeholder: 'Attack score', input_html: { class: 'form-control' } %>
   <%= f.input :picture, label: false, placeholder: 'Picture', input_html: { class: 'form-control' } %>
   <%= f.submit "Create", class: 'btn btn-primary' %>
@@ -23,18 +22,16 @@
     errorClass: 'invalid-feedback text-white',
     rules: {
       'character[name]': { required: true },
-      'character[life_score]': { required: true },
-      'character[attack_score]': { required: true }
+      'character[attack_score]': { required: true, min: 0, max: 200 }
     },
     messages: {
       'character[name]': {
         required: "Please fill this input with a name for your character."
       },
-      'character[life_score]': {
-        required: "Please fill this input with a life score for your character."
-      },
       'character[attack_score]': {
-        required: "Please fill this input with a attack score for your character."
+        required: "Please fill this input with a attack score for your character.",
+        min: "Your character's attack score should be greater than 0.",
+        max: "Your character's attack score should not exceed than 200.",
       }
     }
   });
