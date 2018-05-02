@@ -2,7 +2,7 @@ class FightsController < ApplicationController
 
 
   def index
-    @fights = Fight.all
+    @fights = Fight.order(created_at: :desc)
   end
 
   def create
