@@ -9,6 +9,7 @@
 
 Character.delete_all
 Fight.delete_all
+Weapon.delete_all
 
 def seed_image(file_name)
   File.open(File.join(Rails.root, "/app/assets/images/#{file_name}"))
@@ -19,3 +20,9 @@ Character.create!(name: 'STr0ng mOn$tA', picture: seed_image('strong_monsta.jpg'
 Character.create!(name: 'C@pt@in c0ntr@t', picture: seed_image('captain_contrat.jpeg'))
 Character.create!(name: 'Müm/\/\Y', picture: seed_image('mummy.jpg'))
 Character.create!(name: 'CallMeLooser||KillMe', picture: seed_image('call_me_looser_or_kill_me.jpg'))
+
+Weapon.create!(name: 'Bomb')
+Weapon.create!(name: 'Knife')
+Weapon.create!(name: 'AK47')
+Weapon.create!(name: 'Sword')
+Weapon.create!(name: 'Hammer')

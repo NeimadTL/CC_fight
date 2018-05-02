@@ -11,7 +11,12 @@
       </thead>
       <% @fights.each do |fight| %>
         <tr>
-          <td><p><%= fight.first_character.name %> vs <%= fight.second_character.name %></p></td>
+          <td>
+            <p>
+              <%= fight.first_character.name %> with <%= fight.first_character_weapon.name %> vs
+              <%= fight.second_character.name %> with <%= fight.second_character_weapon.name %>
+            </p>
+          </td>
           <td><p><%= fight.winner.name %></p></td>
         </tr>
       <% end %>
