@@ -18,14 +18,26 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="<%= new_character_path %>">Create new character</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Characters
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<%= new_character_path %>">New character</a>
+              <a class="dropdown-item" href="<%= characters_path %>">All characters</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weapons
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="<%= new_weapon_path %>">New weapon</a>
+              <a class="dropdown-item" href="<%= weapons_path %>">All weapons</a>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<%= fights_path %>">Fights history</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="<%= characters_path %>">All characters</a>
           </li>
         </ul>
       </div>

@@ -1,15 +1,13 @@
-<br/><h5 class="text-white">Create your character</h5><br/>
+<br/><h5 class="text-white">Create your weapon</h5><br/>
 
-<%= simple_form_for @character, url: characters_path do |f| %>
+<%= simple_form_for @weapon, url: weapons_path do |f| %>
   <%= f.input :name, label: false, placeholder: 'Name', input_html: { class: 'form-control' } %>
-  <%= f.input :picture, label: false, placeholder: 'Picture', input_html: { class: 'form-control' } %>
   <%= f.submit "Create", class: 'btn btn-primary' %>
 <% end %>
 
-
 <script type="text/javascript">
 
-  $('#new_character').validate({
+  $('#new_weapon').validate({
 
     highlight: function(element) {
       jQuery(element).closest('.form-control').addClass('is-invalid');
@@ -23,7 +21,7 @@
       'character[name]': { required: true },
     },
     messages: {
-      'character[name]': { required: "Please fill this input with a name for your character." },
+      'weapon[name]': { required: "Please fill this input with a name for your weapon." },
     }
   });
 

@@ -1,0 +1,22 @@
+<br/><h5 class="text-white">Weapons list</h5><br/>
+
+<% if @weapons && !@weapons.empty?  %>
+  <div class="table-responsive-sm">
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Attack score</th>
+        </tr>
+      </thead>
+      <% @weapons.each do |weapon| %>
+        <tr>
+          <td><p><%= weapon.name %></p></td>
+          <td><p><%= weapon.attack_score %></p></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <p class="text-white">No weapons available yet yet</p>
+<% end %>
