@@ -1,4 +1,6 @@
 boss_vs_looser_fight:
   id: 1
-  first_character_id: 1   # game_boss
-  second_character_id: 2  # game_looser
+  first_character_id: 1           # game_boss
+  second_character_id: 2          # game_looser
+  first_character_weapon_id: 1    # bomb
+  second_character_weapon_id: 2   # knife
