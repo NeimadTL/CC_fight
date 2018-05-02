@@ -14,18 +14,17 @@ RSpec.describe CharactersController, type: :controller do
 
   describe "when POST #create" do
     it "with good params, returns http redirect" do
-      post :create, character: { name: 'character 1', attack_score: '60' }
+      post :create, character: { name: 'character 1' }
       created_character = Character.last
       expect(created_character.name).to eq 'character 1'
       expect(created_character.life_score).to eq 100
-      expect(created_character.attack_score).to eq 60
       expect(flash[:notice]).to match('Character created with success')
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to(root_path)
     end
 
     it "with bad params, returns http unprocessable_entity" do
-      post :create, character: { name: nil, life_score: nil, attack_score: nil }
+      post :create, character: { name: nil }
       expect(response).to have_http_status(:unprocessable_entity)
       expect(response).to render_template(:new)
     end
@@ -64,20 +63,17 @@ RSpec.describe CharactersController, type: :controller do
 
   describe "when PUT/PATCH #update" do
     it "with and good params, returns http redirect" do
-      put :update, id: characters(:game_boss).id,
-        character: { name: 'Game Big Boss', attack_score: 99 }
+      put :update, id: characters(:game_boss).id, character: { name: 'Game Big Boss' }
       updated_character = Character.find(characters(:game_boss).id)
       expect(updated_character.name).to eql 'Game Big Boss'
       expect(updated_character.life_score).to eql 100
-      expect(updated_character.attack_score).to eql 99
       expect(flash[:notice]).to match('Character updated with success')
       expect(response).to have_http_status(:redirect)
       expect(response).to redirect_to(characters_path)
     end
 
     it "with bad params, returns http unprocessable_entity" do
-      put :update, id: characters(:game_boss).id,
-        character: { name: nil, life_score: nil, attack_score: nil }
+      put :update, id: characters(:game_boss).id, character: { name: nil }
       expect(response).to have_http_status(:unprocessable_entity)
       expect(response).to render_template(:edit)
     end
