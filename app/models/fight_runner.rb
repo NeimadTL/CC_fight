@@ -16,14 +16,14 @@ class FightRunner
     while @fight.first_character.life_score > 0 && @fight.second_character.life_score > 0
       if first_character_attack_score > second_character_attack_score
         @fight.second_character.life_score = @fight.second_character.life_score - 10
-      elsif second_character_attack_score > first_character_attack_score
+      else
         @fight.first_character.life_score = @fight.first_character.life_score - 10
       end
     end
 
     if @fight.first_character.life_score <= 0
       @fight.second_character
-    elsif @fight.second_character.life_score <= 0
+    else
       @fight.first_character
     end
   end

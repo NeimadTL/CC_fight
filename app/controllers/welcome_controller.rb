@@ -1,17 +1,10 @@
 class WelcomeController < ApplicationController
 
-  def show_first_character_picture
-    first_character = Character.find(welcome_params)
-    @first_character_picture = get_character_picture(first_character)
-
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def show_second_character_picture
-    second_character = Character.find(welcome_params)
-    @second_character_picture = get_character_picture(second_character)
+  def show_character_picture
+    character = Character.find(params[:id])
+    @character_picture = get_character_picture(character)
+    @first_character = params[:first_character]
+    @second_character = params[:second_character]
 
     respond_to do |format|
       format.js
@@ -28,7 +21,4 @@ class WelcomeController < ApplicationController
       end
     end
 
-    def welcome_params
-      params.require(:id)
-    end
 end

@@ -18,28 +18,29 @@ RSpec.describe WelcomeController, type: :controller do
     end
   end
 
-  describe "GET #show_first_character_picture" do
-    it 'returns http success' do
-      xhr :get, :show_first_character_picture, id: characters(:game_boss).id, format: :js
+  describe "GET #show_character_picture" do
+    it 'for first character, returns http success' do
+      xhr :get, :show_character_picture, id: characters(:game_boss).id, first_character: true, format: :js
       expect(response).to have_http_status(:success)
     end
 
     it "with a not found character, renders 404.html file" do
-      xhr :get, :show_first_character_picture, id: Random.new.rand(2000..3000), format: :js
+      xhr :get, :show_character_picture, id: Random.new.rand(2000..3000), first_character: true, format: :js
       expect(response).to render_template(:file => "#{Rails.root}/public/404.html")
     end
-  end
 
-  describe "GET #show_second_character_picture" do
-    it 'returns http success' do
-      xhr :get, :show_second_character_picture, id: characters(:game_looser).id, format: :js
+    it 'for second character, returns http success' do
+      xhr :get, :show_character_picture, id: characters(:game_looser).id, first_character: true, format: :js
       expect(response).to have_http_status(:success)
     end
 
     it "with a not found character, renders 404.html file" do
-      xhr :get, :show_second_character_picture, id: Random.new.rand(2000..3000), format: :js
+      xhr :get, :show_character_picture, id: Random.new.rand(2000..3000), first_character: true, format: :js
       expect(response).to render_template(:file => "#{Rails.root}/public/404.html")
     end
   end
+
+
+
 
 end

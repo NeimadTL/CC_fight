@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   resources :characters
   resources :fights, only: [:index, :create]
-  get '/first_character_picture', to: 'welcome#show_first_character_picture'
-  get '/second_character_picture', to: 'welcome#show_second_character_picture'
+  get '/character_picture', to: 'welcome#show_character_picture'
   resources :weapons, only: [:index, :new, :create]
 
 end
