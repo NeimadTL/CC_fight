@@ -3,8 +3,7 @@ class WelcomeController < ApplicationController
   def show_character_picture
     character = Character.find(params[:id])
     @character_picture = get_character_picture(character)
-    @first_character = params[:first_character]
-    @second_character = params[:second_character]
+    @div_id_prefix = params[:div_id_prefix]
 
     respond_to do |format|
       format.js

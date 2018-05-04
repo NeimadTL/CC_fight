@@ -1,7 +1,1 @@
-<% if @first_character %>
-  $("#first_character_picture_id").html('<%= image_tag @character_picture, size: "200x200", :class => "rounded" %>');
-<% end %>
-
-<% if @second_character %>
-  $("#second_character_picture_id").html('<%= image_tag @character_picture, size: "200x200", :class => "rounded" %>');
-<% end %>
+$("#<%= @div_id_prefix %>_character_picture_id").html('<%= image_tag @character_picture, size: "200x200", :class => "rounded" %>');

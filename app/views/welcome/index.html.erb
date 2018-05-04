@@ -39,12 +39,12 @@
 
   // when first character has been selected, its picture shows up
   $("#fight_first_character_id").change(function() {
-    if($(this).val() != ''){ $.get( "/character_picture", { id: $(this).val(), first_character: true } ); }
+    if($(this).val() != ''){ $.get( "/character_picture", { id: $(this).val(), div_id_prefix: "first" } ); }
   });
 
   // when second character has been selected, its picture shows up
   $("#fight_second_character_id").change(function() {
-    if($(this).val() != ''){ $.get( "/character_picture", { id: $(this).val(), second_character: true } ); }
+    if($(this).val() != ''){ $.get( "/character_picture", { id: $(this).val(), div_id_prefix: "second" } ); }
   });
 
 
