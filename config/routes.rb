@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   resources :fights, only: [:index, :create]
   get '/character_picture', to: 'welcome#show_character_picture'
   resources :weapons, only: [:index, :new, :create]
+  resources :shields, only: [:index, :new, :create]
 
 end

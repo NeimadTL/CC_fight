@@ -1,0 +1,22 @@
+<br/><h5 class="text-white">Shield list</h5><br/>
+
+<% if @shields && !@shields.empty?  %>
+  <div class="table-responsive-sm">
+    <table class="table text-white">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Attack score</th>
+        </tr>
+      </thead>
+      <% @shields.each do |shield| %>
+        <tr>
+          <td><p><%= shield.name %></p></td>
+          <td><p><%= shield.attack_score %></p></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+<% else %>
+  <p class="text-white">No shields available yet</p>
+<% end %>

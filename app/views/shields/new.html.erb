@@ -1,13 +1,13 @@
-<br/><h5 class="text-white">Create your weapon</h5><br/>
+<br/><h5 class="text-white">Create your shield</h5><br/>
 
-<%= simple_form_for @weapon, url: weapons_path do |f| %>
+<%= simple_form_for @shield, url: shields_path do |f| %>
   <%= f.input :name, label: false, placeholder: 'Name', input_html: { class: 'form-control' } %>
   <%= f.submit "Create", class: 'btn btn-primary' %>
 <% end %>
 
 <script type="text/javascript">
 
-  $('#new_weapon').validate({
+  $('#new_shield').validate({
 
     highlight: function(element) {
       jQuery(element).closest('.form-control').addClass('is-invalid');
@@ -18,10 +18,10 @@
     errorElement: 'div',
     errorClass: 'invalid-feedback text-white',
     rules: {
-      'weapon[name]': { required: true },
+      'shield[name]': { required: true },
     },
     messages: {
-      'weapon[name]': { required: "Please fill this input with a name for your weapon." },
+      'shield[name]': { required: "Please fill this input with a name for your shield." },
     }
   });
 
