@@ -16,4 +16,21 @@ RSpec.describe ShieldsController, type: :controller do
     end
   end
 
+  describe "when POST #create" do
+    it "with good params, returns http redirect" do
+      post :create, shield: { name: 'shell' }
+      created_shell = Shield.last
+      expect(created_shell.name).to eq 'shell'
+      expect(flash[:notice]).to match('Shield created with success')
+      expect(response).to have_http_status(:redirect)
+      expect(response).to redirect_to(root_path)
+    end
+
+    it "with bad params, returns http unprocessable_entity" do
+      post :create, shield: { name: nil }
+      expect(response).to have_http_status(:unprocessable_entity)
+      expect(response).to render_template(:new)
+    end
+  end
+
 end
