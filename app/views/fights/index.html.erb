@@ -13,8 +13,10 @@
         <tr>
           <td>
             <p>
-              <%= fight.first_character.name %> with <%= fight.first_character_weapon.name %> vs
-              <%= fight.second_character.name %> with <%= fight.second_character_weapon.name %>
+              <%= fight.first_character.name %> with <%= fight.first_character_weapon.name %> and
+              <%= fight.first_character_shield.name %> vs
+              <%= fight.second_character.name %> with <%= fight.second_character_weapon.name %> and
+              <%= fight.second_character_shield.name %>
             </p>
           </td>
           <td><p><%= fight.winner.name %></p></td>

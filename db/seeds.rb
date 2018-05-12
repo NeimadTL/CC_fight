@@ -10,6 +10,7 @@
 Character.delete_all
 Fight.delete_all
 Weapon.delete_all
+Shield.delete_all
 
 def seed_image(file_name)
   File.open(File.join(Rails.root, "/app/assets/images/#{file_name}"))
@@ -26,3 +27,7 @@ Weapon.create!(name: 'Knife')
 Weapon.create!(name: 'AK47')
 Weapon.create!(name: 'Sword')
 Weapon.create!(name: 'Hammer')
+
+Shield.create!(name: 'Armor')
+Shield.create!(name: 'Shell')
+Shield.create!(name: 'Cape')

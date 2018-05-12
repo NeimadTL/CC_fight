@@ -4,10 +4,14 @@ boss_vs_looser_fight:
   second_character_id: 2          # game_looser
   first_character_weapon_id: 1    # bomb
   second_character_weapon_id: 2   # knife
+  first_character_shield_id: 1    # armor
+  second_character_shield_id: 2   # shell
 
 boss_vs_boss_fight:
   id: 2
   first_character_id: 1           # game_boss
   second_character_id: 1          # game_boss
   first_character_weapon_id: 1    # bomb
-  second_character_weapon_id: 1   # knife
+  second_character_weapon_id: 1   # bomb
+  first_character_shield_id: 1    # armor
+  second_character_shield_id: 1   # armor

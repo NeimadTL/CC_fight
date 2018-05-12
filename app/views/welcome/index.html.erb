@@ -11,6 +11,9 @@
         <%= f.label :first_character_weapon_id, 'First character weapon', class: "form-check-label text-white" %>
         <%= f.collection_select :first_character_weapon_id, Weapon.all, :id, :name, prompt: true %>
         <br/>
+        <%= f.label :first_character_shield_id, 'First character shield', class: "form-check-label text-white" %>
+        <%= f.collection_select :first_character_shield_id, Shield.all, :id, :name, prompt: true %>
+        <br/>
       </div>
       <div class="col-sm">
         <div id="second_character_picture_id" class="text-center"></div>
@@ -19,6 +22,9 @@
         <br/>
         <%= f.label :second_character_weapon_id, 'Second character weapon', class: "form-check-label text-white" %>
         <%= f.collection_select :second_character_weapon_id, Weapon.all, :id, :name, prompt: true %>
+        <br/>
+        <%= f.label :second_character_shield_id, 'Second character shield', class: "form-check-label text-white" %>
+        <%= f.collection_select :second_character_shield_id, Shield.all, :id, :name, prompt: true %>
         <br/>
       </div>
     </div>

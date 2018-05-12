@@ -9,9 +9,9 @@ class FightRunner
   # The winner is the character with the most attack score
   def run_fight
     first_character_attack_score = @fight.first_character.attack_score
-      + @fight.first_character_weapon.attack_score
+      + @fight.first_character_weapon.attack_score + @fight.first_character_shield.attack_score
     second_character_attack_score = @fight.second_character.attack_score
-      + @fight.second_character_weapon.attack_score
+      + @fight.second_character_weapon.attack_score + @fight.second_character_shield.attack_score
 
     while @fight.first_character.life_score > 0 && @fight.second_character.life_score > 0
       if first_character_attack_score > second_character_attack_score
