@@ -4,6 +4,8 @@ class Fight < ActiveRecord::Base
   validates :second_character_id, presence: true
   validates :first_character_weapon_id, presence: true
   validates :second_character_weapon_id, presence: true
+  validates :first_character_shield_id, presence: true
+  validates :second_character_shield_id, presence: true
 
 
   belongs_to :first_character, :foreign_key => :first_character_id, class_name: 'Character'
@@ -11,4 +13,6 @@ class Fight < ActiveRecord::Base
   belongs_to :winner, :foreign_key => :winner_id, class_name: 'Character'
   belongs_to :first_character_weapon, :foreign_key => :first_character_weapon_id, class_name: 'Weapon'
   belongs_to :second_character_weapon, :foreign_key => :second_character_weapon_id, class_name: 'Weapon'
+  belongs_to :first_character_shield, :foreign_key => :first_character_shield_id, class_name: 'Shield'
+  belongs_to :second_character_shield, :foreign_key => :second_character_shield_id, class_name: 'Shield'
 end

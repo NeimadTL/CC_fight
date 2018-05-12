@@ -1,0 +1,14 @@
+armor:
+  id: 1
+  name: armor
+  attack_score: 42
+
+shell:
+  id: 2
+  name: shell
+  attack_score: 36
+
+cape:
+  id: 3
+  name: cape
+  attack_score: 22
